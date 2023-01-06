@@ -49,7 +49,7 @@ class ProfileEdit extends React.Component {
     }, async () => {
       await updateUser({ description, email, image, name });
       this.setState({ loading: false });
-      return history.push('/trybetunes/profile');
+      return history.push('/profile');
     });
   };
 

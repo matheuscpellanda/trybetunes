@@ -20,7 +20,7 @@ class Login extends React.Component {
     const { history } = this.props;
     const { name } = await getUser();
     if (name) {
-      return history.push('/trybetunes/search');
+      return history.push('/search');
     }
     this.setState({
       ready: true,
@@ -46,7 +46,7 @@ class Login extends React.Component {
     this.setState({
       loading: false,
     });
-    return history.push('/trybetunes/search');
+    return history.push('/search');
   };
 
   render() {

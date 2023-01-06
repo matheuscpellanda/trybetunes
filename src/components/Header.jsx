@@ -31,19 +31,19 @@ class Header extends React.Component {
       <header data-testid="header-component">
         <img src={ logo } alt="" />
         <nav>
-          <Link to="/trybetunes/">
+          <Link to="/">
             <img src={ iconHome } alt="" />
             Home
           </Link>
-          <Link to="/trybetunes/search" data-testid="link-to-search">
+          <Link to="/search" data-testid="link-to-search">
             <img src={ iconSearch } alt="" />
             Buscar
           </Link>
-          <Link to="/trybetunes/favorites" data-testid="link-to-favorites">
+          <Link to="/favorites" data-testid="link-to-favorites">
             <img src={ iconFavorite } alt="" />
             Favoritos
           </Link>
-          <Link to="/trybetunes/profile" data-testid="link-to-profile">
+          <Link to="/profile" data-testid="link-to-profile">
             <img src={ iconProfile } alt="" />
             Profile
           </Link>
