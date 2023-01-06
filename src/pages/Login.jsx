@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { createUser } from '../services/userAPI';
+import { createUser, getUser } from '../services/userAPI';
 import logo from '../img/logo.png';
 
 const MIN_LEN_NAME = 3;
@@ -8,12 +8,23 @@ const MIN_LEN_NAME = 3;
 class Login extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       userName: '',
       disableSubmit: true,
       loading: false,
+      ready: false,
     };
+  }
+
+  async componentDidMount() {
+    const { history } = this.props;
+    const { name } = await getUser();
+    if (name) {
+      return history.push('/trybetunes/search');
+    }
+    this.setState({
+      ready: true,
+    });
   }
 
   handlerChange = ({ target }) => {
@@ -35,36 +46,41 @@ class Login extends React.Component {
     this.setState({
       loading: false,
     });
-    return history.push('/search');
+    return history.push('/trybetunes/search');
   };
 
   render() {
-    const { disableSubmit, loading } = this.state;
+    const { disableSubmit, loading, ready } = this.state;
     return (
       <div data-testid="page-login" className="login">
         <form className="form-login">
           <img src={ logo } alt="Logo TrybeTunes" />
-          <input
-            type="text"
-            name=""
-            id=""
-            data-testid="login-name-input"
-            placeholder="qual é o seu nome?"
-            onChange={ this.handlerChange }
-          />
-          <button
-            type="submit"
-            data-testid="login-submit-button"
-            disabled={ disableSubmit }
-            onClick={ this.handlerSubmit }
-          >
-            Entrar
+          {
+            ready && !loading ? (
+              <>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  data-testid="login-name-input"
+                  placeholder="qual é o seu nome?"
+                  onChange={ this.handlerChange }
+                />
+                <button
+                  type="submit"
+                  data-testid="login-submit-button"
+                  disabled={ disableSubmit }
+                  onClick={ this.handlerSubmit }
+                >
+                  Entrar
 
-          </button>
+                </button>
+              </>
+            ) : (
+              <p>Carregando...</p>
+            )
+          }
         </form>
-        {
-          loading ? <p>Carregando...</p> : null
-        }
       </div>
     );
   }

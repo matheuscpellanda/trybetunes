@@ -26,7 +26,7 @@ class Card extends React.Component {
           { trackCount }
         </p>
         <Link
-          to={ `/album/${collectionId}` }
+          to={ `/trybetunes/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
         >
           Abrir

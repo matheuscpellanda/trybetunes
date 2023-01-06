@@ -32,7 +32,9 @@ class Favorites extends React.Component {
         <Header />
         <div className="column">
           {
-            loading ? <p>Carregando...</p> : <h1>Músicas Favoritas</h1>
+            loading ? (
+              <div className="loading"><p>Carregando...</p></div>
+            ) : <h1>Músicas Favoritas</h1>
           }
           <div className="favorites-tracks">
             {

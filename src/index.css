@@ -17,9 +17,24 @@ code {
 }
 
 .loading {
-  align-items: center;
+  position: fixed;
   display: flex;
-  justify-content: center;
+  left: 42%;
+  top: 40vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  min-width: 400px;
+  width: 30%;
+  height: 20vh;
+  border-radius: 35px;
+  box-sizing: border-box;
+  box-shadow: var(--elevation-3);
+}
+
+.loading p {
+  margin: auto;
+  font-weight: 600;
+  font-size: 20px;
+  color: white;
 }
 
 .Content {
@@ -165,6 +180,12 @@ Header .header-user {
   box-shadow: var(--elevation-3);
 }
 
+.form-login p {
+  color: black;
+  font-weight: 700;
+  margin: 50px auto;
+}
+
 .form-login input {
   width: 400px;
   height: 40px;
@@ -220,6 +241,69 @@ Header .header-user {
   background-image: url('./img/background_search.png');
   background-size: cover;
   display: flex;
+}
+
+.profile {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('./img/background_search.png');
+  background-size: cover;
+  display: flex;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: auto;
+  padding: 35px;
+  border-radius: 35px;
+  box-sizing: border-box;
+  box-shadow: var(--elevation-3);
+  align-items: center;
+  min-width: 30vw;
+}
+
+.profile-form img {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-form a {
+  color: black;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.profile-form a:hover {
+  color: white;
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: rgb(110, 110, 110);
+  box-shadow: var(--elevation-3);
+}
+
+.profile-info p {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  font-weight: 500;
+  margin: 0;
+  border-radius: 15px;
+  background-color: rgb(236, 236, 236);
+  padding: 10px;
+}
+
+.profile-info {
+  display: flex;
+  font-weight: 700;
+  margin: 25px 0;
+  gap: 25px;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
 }
 
 .search .column {
@@ -458,6 +542,7 @@ Header .header-user {
   justify-content: space-between;
   border-radius: 30px;
   box-shadow: var(--elevation-3);
+  max-height: 100px;
 }
 
 .music-card audio {
@@ -481,15 +566,16 @@ Header .header-user {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  min-width: 200px;
+  min-width: 30vw;
   max-width: 500px;
   width: 50%;
   margin: auto;
-  background-color: aquamarine;
-  padding: 40px;
+  background-color: white;
+  padding: 35px;
   border-radius: 35px;
   gap: 20px;
   box-shadow: var(--elevation-3);
+  box-sizing: border-box;
 }
 
 .form-edit-profile .row{
@@ -528,7 +614,8 @@ label {
 }
 
 .form-edit-profile img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 }

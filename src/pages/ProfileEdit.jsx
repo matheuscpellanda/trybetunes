@@ -49,18 +49,20 @@ class ProfileEdit extends React.Component {
     }, async () => {
       await updateUser({ description, email, image, name });
       this.setState({ loading: false });
-      return history.push('/profile');
+      return history.push('/trybetunes/profile');
     });
   };
 
   render() {
     const { description, email, image, name, loading, submitDisabled } = this.state;
     return (
-      <div data-testid="page-profile-edit">
+      <div data-testid="page-profile-edit" className="profile">
         <Header />
         {
           loading
-            ? <p>Carregando...</p>
+            ? (
+              <div className="loading"><p>Carregando...</p></div>
+            )
             : (
               <form className="form-edit-profile">
                 <div className="row">
